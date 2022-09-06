@@ -7,8 +7,8 @@ const express = require('express');
 
 // create LINE SDK config from env variables
 const config = {
-  channelAccessToken: process.env.ACCESS_TOKEN,
-  channelSecret: process.env.CHANNAL_SECRET,
+  channelAccessToken: 'WblupvwwWW5IbQ1KmARod4KCHX5U8K6wCTPSW+GzAUUWRWrlr9Dofu4VKOPXnRGnN+PJ+yAgraZCSLfsKc248nfr4hLqIVtjUUxW/URPRiRPWk5mfKIAojWtjiNoGIFVVV6m9A4aL8ec58KIPvUsgAdB04t89/1O/w1cDnyilFU=', //process.env.ACCESS_TOKEN,
+  channelSecret: '53dbbf75ecca5c5874423d9ff8c7151c'//process.env.CHANNAL_SECRET,
 };
 
 // create LINE SDK client
@@ -20,7 +20,7 @@ const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post('/callback', line.middleware(config), (req, res) => {
+app.post('/webhook', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
