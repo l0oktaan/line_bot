@@ -1,12 +1,14 @@
+require('dotenv').config();
 'use strict';
+
 
 const line = require('@line/bot-sdk');
 const express = require('express');
 
 // create LINE SDK config from env variables
 const config = {
-  channelAccessToken: 'WblupvwwWW5IbQ1KmARod4KCHX5U8K6wCTPSW+GzAUUWRWrlr9Dofu4VKOPXnRGnN+PJ+yAgraZCSLfsKc248nfr4hLqIVtjUUxW/URPRiRPWk5mfKIAojWtjiNoGIFVVV6m9A4aL8ec58KIPvUsgAdB04t89/1O/w1cDnyilFU=',
-  channelSecret: '53dbbf75ecca5c5874423d9ff8c7151c',
+  channelAccessToken: process.env.ACCESS_TOKEN,
+  channelSecret: process.env.CHANNAL_SECRET,
 };
 
 // create LINE SDK client
@@ -44,7 +46,7 @@ function handleEvent(event) {
 }
 
 // listen on port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
