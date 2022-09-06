@@ -39,7 +39,15 @@ function handleEvent(event) {
 
   // create a echoing text message
   // const echo = { type: 'text', text: event.message.id };
-  const echo = { type: 'text', text: event.source.userId };
+  var replyText = '';
+  if (event.message.text == 'ลงทะเบียน'){
+    replyText = 'พิมพ์ user AD ของท่าน เช่น ad\songwut.saj'
+  }else{
+    replyText = event.message.id
+  }
+
+  // const echo = { type: 'text', text: event.source.userId };
+  const echo = { type: 'text', text:  replyText};
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
