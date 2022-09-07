@@ -41,7 +41,7 @@ function handleEvent(event) {
   // const echo = { type: 'text', text: event.message.id };
   var replyText = '';
   if (event.message.text == 'ลงทะเบียน'){
-    replyText = `พิมพ์ userAD ของท่าน เช่น ad\songwut.saj`
+    replyText = `พิมพ์ userAD ของท่าน เช่น ad\\songwut.saj`
   }else{
     replyText = event.message.id
   }
